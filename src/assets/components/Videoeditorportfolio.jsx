@@ -150,7 +150,7 @@ function HeroSection() {
             <h2 className="text-3xl font-bold text-yellow-200 text-glow uppercase tracking-wider" style={{ fontFamily: "'Impact', sans-serif" }}>HAYA</h2>
           </div>
           <div className="bg-black/80 border border-white/20 rounded-xl px-6 py-3 shadow-2xl flex-1 text-center">
-            <h2 className="text-2xl font-bold text-yellow-200 text-glow uppercase tracking-wider" style={{ fontFamily: "'Impact', sans-serif" }}>Media Editor</h2>
+            <h2 className="text-2xl font-bold text-yellow-200 text-glow uppercase tracking-wider" style={{ fontFamily: "'Impact', sans-serif" }}>Editor</h2>
           </div>
         </div>
 
@@ -160,18 +160,67 @@ function HeroSection() {
 }
 
 function ResumeSection() {
+  const [ready, setReady] = useState(false);
+
+  // Skill bars page load hone ke baad animate hongi
+  React.useEffect(() => {
+    const t = setTimeout(() => setReady(true), 300);
+    return () => clearTimeout(t);
+  }, []);
+
+  // level = skill percentage (apne hisaab se change kar lo)
+  const softwareGroups = [
+    {
+      group: 'Video Editing',
+      items: [
+        { code: 'Pr', label: 'Premiere Pro', level: 95, primary: true, bg: '#00005B', fg: '#9999FF' },
+        { code: 'Cc', label: 'CapCut', level: 90, primary: true, bg: '#000000', fg: '#FFFFFF' },
+      ],
+    },
+    {
+      group: 'Motion, Design & 3D',
+      items: [
+        { code: 'Ae', label: 'After Effects', level: 85, primary: true, bg: '#1E0A3C', fg: '#B4A7FF' },
+        { code: 'Ps', label: 'Photoshop', level: 80, primary: true, bg: '#001E36', fg: '#31A8FF' },
+        { code: 'Ai', label: 'Illustrator', level: 65, bg: '#330000', fg: '#FF9A00' },
+        { code: 'Bl', label: 'Blender', level: 60, bg: '#F5792A', fg: '#FFFFFF' },
+      ],
+    },
+    {
+      group: 'Audio',
+      items: [{ code: 'Au', label: 'Audition', level: 75, bg: '#4B0002', fg: '#FF6A6A' }],
+    },
+  ];
+
+  const experience = [
+    {
+      years: '2022–2023',
+      title: 'Freelancing',
+      role: 'Video Editor',
+    },
+    {
+      years: '2023–2024',
+      title: 'Agency',
+      role: 'Video Editor',
+    },
+    {
+      years: '2025–Today',
+      title: 'Freelancing',
+      role: 'Created videos for YouTubers, content creators & personal brands',
+      current: true,
+    },
+  ];
+
   return (
-    <div className="relative z-20 bg-black/60 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-12 mb-20 shadow-2xl mt-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        
-        {/* Column 1: About & Profile */}
-        <div className="lg:col-span-4 space-y-8">
+    <div className="relative z-20 mb-20 mt-8 space-y-8">
+      {/* Card 1: About + Contact */}
+      <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold mb-4 uppercase tracking-wider">About Me</h3>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
               My name is Haya. I'm a passionate and creative video editor with a strong desire to tell compelling stories through visuals. My goal is to become a leading content creator and collaborate on impactful digital projects. I believe in creating content that resonates with audiences and stands out on every platform.
             </p>
-
             <div className="space-y-2 text-sm text-gray-300 border-t border-white/10 pt-4">
               <div className="flex justify-between">
                 <span className="text-gray-500 uppercase text-xs tracking-wider">Name</span>
@@ -187,10 +236,7 @@ function ResumeSection() {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Column 2: Contact & Software */}
-        <div className="lg:col-span-4 space-y-10">
           <div className="space-y-4">
             <h3 className="text-2xl font-bold uppercase tracking-wider mb-4">Contact</h3>
             <div className="flex items-center gap-3 text-sm text-gray-300">
@@ -202,85 +248,104 @@ function ResumeSection() {
               <span className="bg-white/10 px-2 py-1 rounded">theeditorial@gmail.com</span>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div>
-            <h3 className="text-2xl font-bold uppercase tracking-wider mb-4">Software</h3>
-            <div className="flex flex-wrap gap-3">
-              {[
-                { code: 'Pr', label: 'Premiere Pro', bg: '#00005B', fg: '#9999FF' },
-                { code: 'Ae', label: 'After Effects', bg: '#1E0A3C', fg: '#B4A7FF' },
-                { code: 'Ps', label: 'Photoshop', bg: '#001E36', fg: '#31A8FF' },
-                { code: 'Au', label: 'Audition', bg: '#4B0002', fg: '#FF6A6A' },
-                { code: 'Ai', label: 'Illustrator', bg: '#330000', fg: '#FF9A00' },
-                { code: 'Bl', label: 'Blender', bg: '#F5792A', fg: '#FFFFFF' },
-                { code: 'Cc', label: 'CapCut', bg: '#000000', fg: '#FFFFFF' },
-              ].map((tool) => (
-                <div
-                  key={tool.code}
-                  title={tool.label}
-                  style={{ backgroundColor: tool.bg, color: tool.fg }}
-                  className="w-12 h-12 rounded-xl font-bold flex items-center justify-center text-lg shadow-lg border-2 border-transparent hover:border-yellow-500 transition-colors cursor-pointer"
-                >
-                  {tool.code}
+      {/* Card 2: Tools + Experience (combined) */}
+      <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+          {/* Tools & Software */}
+          <div className="lg:col-span-7">
+            <div className="flex items-end justify-between mb-8">
+              <h3 className="text-2xl font-bold uppercase tracking-wider">Tools & Software</h3>
+              <span className="text-[10px] text-gray-500 uppercase tracking-widest">Proficiency</span>
+            </div>
+
+            <div className="space-y-8">
+              {softwareGroups.map((g) => (
+                <div key={g.group}>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-yellow-500 mb-4">
+                    {g.group}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {g.items.map((tool) => (
+                      <div
+                        key={tool.code}
+                        className="group flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-yellow-500/60 rounded-2xl p-3 transition-all duration-300"
+                      >
+                        <div
+                          style={{ backgroundColor: tool.bg, color: tool.fg }}
+                          className="w-12 h-12 shrink-0 rounded-xl font-bold flex items-center justify-center text-lg shadow-lg group-hover:scale-105 transition-transform"
+                        >
+                          {tool.code}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-sm font-semibold text-white truncate">
+                              {tool.label}
+                            </span>
+                            <span className="text-xs font-bold text-gray-400">{tool.level}%</span>
+                          </div>
+                          <div className="h-1.5 w-full bg-white/10 rounded-full mt-2 overflow-hidden">
+                            <div
+                              className="h-full rounded-full bg-gradient-to-r from-yellow-600 to-yellow-300 transition-all duration-1000 ease-out"
+                              style={{ width: ready ? `${tool.level}%` : '0%' }}
+                            />
+                          </div>
+                          {tool.primary && (
+                            <span className="inline-block mt-2 text-[9px] font-bold uppercase tracking-wider text-black bg-yellow-500 px-1.5 py-0.5 rounded">
+                              Primary
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Column 3: Experience */}
-        <div className="lg:col-span-4 space-y-10">
-          <div>
-            <h3 className="text-2xl font-bold uppercase tracking-wider mb-6">Experience</h3>
-            <div className="border-l-2 border-gray-700 ml-2 space-y-8 relative pb-4">
-
-              <div className="relative pl-6">
-                <div className="absolute -left-[9px] top-1 w-4 h-4 bg-black border-2 border-gray-400 rounded-full"></div>
-                <div className="flex gap-4 items-baseline">
-                  <span className="text-sm font-bold text-gray-400 min-w-[70px]">2022–2023</span>
-                  <div>
-                    <h4 className="font-bold text-lg">Freelancing</h4>
-                    <p className="text-sm text-gray-400 border-t border-gray-700 pt-1 mt-1">Video Editor</p>
-                  </div>
+          {/* Experience */}
+          <div className="lg:col-span-5 lg:border-l lg:border-white/10 lg:pl-12">
+            <h3 className="text-2xl font-bold uppercase tracking-wider mb-8">Experience</h3>
+            <div className="border-l-2 border-gray-700 ml-2 space-y-8 relative pb-2">
+              {experience.map((exp) => (
+                <div key={exp.years} className="relative pl-6">
+                  <div
+                    className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full border-2 ${
+                      exp.current
+                        ? 'bg-yellow-500 border-yellow-300 animate-pulse'
+                        : 'bg-black border-gray-400'
+                    }`}
+                  ></div>
+                  <span
+                    className={`text-xs font-bold uppercase tracking-wider ${
+                      exp.current ? 'text-yellow-500' : 'text-gray-500'
+                    }`}
+                  >
+                    {exp.years}
+                  </span>
+                  <h4 className="font-bold text-lg mt-1">{exp.title}</h4>
+                  <p className="text-sm text-gray-400 border-t border-gray-700 pt-1 mt-1">
+                    {exp.role}
+                  </p>
                 </div>
-              </div>
-
-              <div className="relative pl-6">
-                <div className="absolute -left-[9px] top-1 w-4 h-4 bg-black border-2 border-gray-400 rounded-full"></div>
-                <div className="flex gap-4 items-baseline">
-                  <span className="text-sm font-bold text-gray-400 min-w-[70px]">2023–2024</span>
-                  <div>
-                    <h4 className="font-bold text-lg">Agency</h4>
-                    <p className="text-sm text-gray-400 border-t border-gray-700 pt-1 mt-1">Video Editor</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative pl-6">
-                <div className="absolute -left-[9px] top-1 w-4 h-4 bg-black border-2 border-gray-400 rounded-full"></div>
-                <div className="flex gap-4 items-baseline">
-                  <span className="text-sm font-bold text-gray-400 min-w-[70px]">2025–Today</span>
-                  <div>
-                    <h4 className="font-bold text-lg">Freelancing</h4>
-                  </div>
-                </div>
-              </div>
-
+              ))}
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
   );
 }
-
 function PortfolioSection() {
-  const [activeTab, setActiveTab] = useState('All');
+ const [activeTab, setActiveTab] = useState('Talking Head');
 
-  const tabs = [
-    { name: 'All', icon: <Sparkles size={16}/> },
-    { name: 'Talking Head', icon: <Mic size={16}/> },
+const tabs = [
+  { name: 'Talking Head', icon: <Mic size={16}/> },
     { name: 'Podcast', icon: <Headphones size={16}/> },
     { name: 'Shorts', icon: <Leaf size={16}/> },
     { name: 'Motion Graphics', icon: <Zap size={16}/> },
@@ -359,12 +424,10 @@ function PortfolioSection() {
       {/* Grid Gallery — shows everything when "All" is active, otherwise
           filtered to just the selected category */}
       {(() => {
-        const visibleProjects =
-          activeTab === 'All'
-            ? Object.entries(PROJECTS).flatMap(([cat, items]) =>
-                items.map((item) => ({ ...item, category: cat }))
-              )
-            : (PROJECTS[activeTab] || []).map((item) => ({ ...item, category: activeTab }));
+        const visibleProjects = (PROJECTS[activeTab] || []).map((item) => ({
+  ...item,
+  category: activeTab,
+}));
 
         return (
           <div className="mt-16">
@@ -420,7 +483,9 @@ const PROJECTS = {
     { title: 'Hook, Line & Scroll', video: '/videos/short-2.mp4' },
   ],
   'Motion Graphics': [
-    // { title: 'Your Title Here', video: '/videos/motion-graphics-1.mp4' },
+    { title: 'Your Title Here', video: '/videos/motion-graphics-1.mp4' },
+    { title: 'Your Title Here', video: '/videos/motion-graphics-2.mp4' },
+
   ],
   'UGC Ads': [
     { title: 'Unbox & Believe', video: '/videos/ugc-ads-1.mp4' },
