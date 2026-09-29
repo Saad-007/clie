@@ -397,10 +397,6 @@ const FEATURED = [
     highlight: 'Top Editor Recognition',
     text: 'for consistently producing high-retention content that helped multiple YouTube channels cross 1M+ organic views within their first month of collaboration.',
   },
-  {
-    highlight: 'Lead Editor',
-    text: 'on a nationwide UGC ad campaign, delivering 20+ high-converting ad variations across TikTok and Instagram for a single brand launch.',
-  },
 ];
 
 // AI tools worked into the editing pipeline. Swap icons/labels for whatever
