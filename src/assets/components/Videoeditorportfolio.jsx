@@ -199,7 +199,7 @@ function ResumeSection() {
             </div>
             <div className="flex items-center gap-3 text-sm text-gray-300">
               <Mail size={16} className="text-yellow-500" />
-              <span className="bg-white/10 px-2 py-1 rounded">theeditorial@gmail.com</span>
+              <span className="bg-white/10 px-2 py-1 rounded">theeditorya1@gmail.com</span>
             </div>
           </div>
         </div>
@@ -719,7 +719,7 @@ function ThankYouSection() {
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10">
           <a
-            href="mailto:theeditorial@gmail.com"
+            href="mailto:theeditorya1@gmail.com"
             className="flex items-center gap-2 text-gray-300 hover:text-yellow-500 transition-colors"
           >
             <Mail size={16} className="text-yellow-500" />
