@@ -173,17 +173,17 @@ function ResumeSection() {
           <div>
             <h3 className="text-2xl font-bold mb-4 uppercase tracking-wider">About Me</h3>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              My name is Haya. I'm a passionate and creative video editor with a strong desire to tell compelling stories through visuals. My goal is to become a leading content creator and collaborate on impactful digital projects. I believe in creating content that resonates with audiences and stands out on every platform.
+              I'm a passionate and creative video editor with a strong desire to tell compelling stories through visuals. My goal is to become a leading content creator and collaborate on impactful digital projects. I believe in creating content that resonates with audiences and stands out on every platform.
             </p>
             <div className="space-y-2 text-sm text-gray-300 border-t border-white/10 pt-4">
-              <div className="flex justify-between">
+              {/* <div className="flex justify-between">
                 <span className="text-gray-500 uppercase text-xs tracking-wider">Name</span>
                 <span className="font-medium text-white">Haya</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-500 uppercase text-xs tracking-wider">Date of Birth</span>
                 <span className="font-medium text-white">17-02-2003</span>
-              </div>
+              </div> */}
               <div className="flex justify-between">
                 <span className="text-gray-500 uppercase text-xs tracking-wider">Location</span>
                 <span className="font-medium text-white">Karachi</span>
@@ -723,7 +723,7 @@ function ThankYouSection() {
             className="flex items-center gap-2 text-gray-300 hover:text-yellow-500 transition-colors"
           >
             <Mail size={16} className="text-yellow-500" />
-            <span className="text-sm">theeditorial@gmail.com</span>
+            <span className="text-sm">theeditorya1@gmail.com</span>
           </a>
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition-colors cursor-pointer">
@@ -744,7 +744,7 @@ function Footer() {
   return (
     <footer className="border-t border-white/10 py-6 px-6 text-center">
       <p className="text-xs text-gray-500 tracking-wide">
-        © {new Date().getFullYear()} Haya — Video Editor. All rights reserved.
+        © {new Date().getFullYear()} Video Editor. All rights reserved.
       </p>
     </footer>
   );
