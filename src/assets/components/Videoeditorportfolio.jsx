@@ -103,7 +103,7 @@ function HeroSection() {
         {/* Left Box: HAYA */}
         <div className="hidden md:flex bg-black/80 border border-white/20 rounded-xl px-10 py-5 shadow-2xl backdrop-blur-md">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-200 text-glow uppercase tracking-wider" style={{ fontFamily: "'Impact', sans-serif" }}>
-            HAYA
+            Video
           </h2>
         </div>
 
@@ -152,7 +152,7 @@ function HeroSection() {
         {/* Mobile Title Fallback (for smaller screens) */}
         <div className="md:hidden flex gap-3 mt-5 w-full justify-between px-2">
           <div className="bg-black/80 border border-white/20 rounded-lg px-3 py-2 shadow-xl flex-1 text-center">
-            <h2 className="text-base font-bold text-yellow-200 text-glow uppercase tracking-wider truncate" style={{ fontFamily: "'Impact', sans-serif" }}>Haya</h2>
+            <h2 className="text-base font-bold text-yellow-200 text-glow uppercase tracking-wider truncate" style={{ fontFamily: "'Impact', sans-serif" }}>Video</h2>
           </div>
           <div className="bg-black/80 border border-white/20 rounded-lg px-3 py-2 shadow-xl flex-1 text-center">
             <h2 className="text-sm font-bold text-yellow-200 text-glow uppercase tracking-wider truncate" style={{ fontFamily: "'Impact', sans-serif" }}>Editor</h2>
